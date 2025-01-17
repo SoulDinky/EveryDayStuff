@@ -1,0 +1,83 @@
+Guidelines for installing Arch Linux -- NOT --  Encrypted the manual way
+
+If you have never done this before, you should watch one of my Arch Base Install Videos before trying this and 
+it would be wise to try it on an extra computer or a vitural machine.
+
+You need to know how to use Vim or Nano
+
+make tty font large, optional:  setfont ter-128b or ter-132b
+
+timedatectl set-ntp true
+
+curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
+
+vim /etc/pacman.d/mirrorlist  (select a few mirrors from your country)
+
+pacman -Syy
+
+vim /etc/pacman.conf    (uncomment verbose & parallel downloads)
+
+cfdisk make boot partition 1G, make main partition for the rest of your drive should be G, example: 500G
+
+lsblk   to see what your drives are called
+
+mkfs.ext4 /dev/sda1
+
+mkfs.ext4 /dev/sda2
+
+mount /dev/sda2 /mnt
+
+mkdir /mnt/boot
+
+mount /dev/sda1 /mnt/boot
+
+lsblk   just to see your drives are okay
+
+if you want the long the term support kernel, type linux-lts instead of linux in the line below
+
+pacstrap /mnt base base-devel linux linux-firmware linux-headers vim git terminus-font
+ 
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+to find out your Region/City you can type:  timedatectl list-timezones | less
+
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
+vim /etc/locale.gen
+
+locale-gen
+
+vim /etc/locale.conf
+
+LANG=en_US.UTF-8     make sure you use the correct one for you
+
+vim /etc/hostname    give your computer a host name
+
+mkinitcpio -P
+
+passwd root   give root a password
+
+pacman -S networkmanager grub 
+
+systemctl enable NetworkManager     make sure the N and M are capitalized
+
+grub-install /dev/sda
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+exit
+
+umount -R /mnt
+
+reboot  
+
+Remember at this point you only have a root account with a password. You have to make a user with a password and sudo rights. 
+You also have to install a Desktop or Window Manager with your favourite apps. See my post install videos or my post install
+written instructions
+
+
+THE END
+
+

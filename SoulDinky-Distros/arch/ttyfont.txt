@@ -1,0 +1,17 @@
+To see what console fonts are available
+
+setfont /usr/share/kbd/consolefonts/
+
+
+to make tty font permanent:
+
+vim /etc/vconsole.conf
+
+type in following command:
+
+FONT=ter-132b
+
+
+
+
+

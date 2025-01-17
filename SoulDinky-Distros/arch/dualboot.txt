@@ -1,0 +1,111 @@
+In Windows, make new partition using Disk Management
+
+reboot and log on to Arch ISO
+
+curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
+
+
+lsblk
+
+cfdisk /dev/sda
+
+
+
+
+mkfs.vfat -F 32 /dev/sda5
+
+mkfs.ext4 /dev/sda6
+
+mkdir /mnt/archinstall
+
+mount /dev/sda6 /mnt/archinstall    (main partition)
+
+mkdir /mnt/archinstall/boot
+
+mount /dev/sda5 /mnt/archinstall/boot  (boot partition)
+
+archinstall
+
+disk configuration pre-mounted  enter the root direct of the mounted devices: /mnt/archinstall
+
+
+
+after installation chroot before rebooting
+
+mkdir /mnt/win10
+
+mount /dev/sda1 /mnt/win10     should mount the 100M sda partition
+
+cd /mnt/win10
+
+ls   should see EFI
+
+cd EFI
+
+ls  should see Boot & Microsoft
+
+cd
+
+cp -r /mnt/win10/EFI/Microsoft /boot/EFI/
+
+
+
+
+exit and shutdown now
+
+
+remove iso
+
+
+To change kernels:
+
+install kernel
+
+ls -l /boot/loader/entries
+
+go into root
+
+cd /boot/loader/entries
+
+ls
+
+cp current kernel.conf to newkernel.conf 
+
+ls
+
+go in file and change wording to new kernel
+
+reboot
+
+To set bootmenu time: bootctl set-timout 10
+
+To list boot options: bootctl or bootctl list
+
+
+
+
+
+
+To delete dual boot and partitions:
+
+log on to live Arch ISO 
+
+lsblk
+
+cfdisk /dev/sda
+
+delete main and boot parititons. Main partition can be deleted with Windows Disk Manager,
+but not the boot partition
+
+shutdown and take the live Arch ISO out
+
+log into Windows and use Disk Manager to re-parititon your drive and reboot
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+Guidelines for Arch post installation
+
+
+log in as root
+
+useradd -m your-user-name
+
+passwd your-user-name
+
+vim /etc/sudoers
+
+copy line where root has ALL ALL
+
+paste it and change the word root to your user name and save the file
+
+logout and login with your new user name
+
+mkdir .config
+
+You can install your favourite desktop or window manager, and apps or you can download my configs and install
+my favourites. I have a basic script called autoapp, which installs most apps one would need. I also
+have a runconfig file which copies certain files into the proper place.
+
+Get my config files below
+
+git clone https://gitlab.com/SoulDinky/EveryDayStuff.git
+
+cd into the  folder and then into the arch folder
+
+run the  autoapp install script by typing:  ./autoapp.sh
+
+run  my config script by typing:  ./runconfigs.sh
+
+reboot ~ ~
+
+
+in the terminal type: zsh and su into root and type zsh
+
+if zsh is working with my config, you can make it the default shell, if you want to
+
+sudo vim /etc/passwd
+
+on the first line that starts with root, at the end of the line delete bash and type zsh
+
+find the line with your user name, at the end of the line delete bash and type zsh
+
+be carefull when in the passwd file, if you accidently, mess something up, you may not be 
+able to boot in to your system or your passwords may not work. If this happens there is a way 
+to fix it but it's too complicated to explain by typing it here
+
+reboot
+
+
+THE END
+
+
+

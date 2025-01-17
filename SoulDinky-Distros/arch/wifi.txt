@@ -1,0 +1,14 @@
+iwctl
+device list
+station name scan
+station name get-networks
+station name connect your-network-name
+enter your password
+
+
+
+After installation
+
+nmtui
+
+

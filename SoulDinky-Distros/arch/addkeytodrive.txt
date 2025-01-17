@@ -1,0 +1,40 @@
+
+mv mystuff /home/mench
+
+chown mench: mystuff
+
+
+
+
+# First make a new key
+
+openssl genrsa -out /root/luks.key 4096
+
+# Change key to read only
+
+chmod 400 /root/luks.key
+
+# Add new key to existing encrypted drive that already has a password
+
+cryptsetup luksAddKey /dev/vdb1 /root/luks.key
+
+
+# if you get an error message say target drive is busy
+
+umount -l /name 
+
+
+#This should be in your crypttab file
+
+mystuff         /dev/vdb1               /root/luks.key
+
+
+mystuff         /dev/vdb1               none
+
+
+This should be in your fstab file
+
+/dev/mapper/mystuff     /home/mench/mystuff     ext4    defaults        0 0
+
+
+

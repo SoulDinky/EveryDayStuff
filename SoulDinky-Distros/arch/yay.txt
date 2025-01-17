@@ -1,0 +1,23 @@
+
+
+yay -Syu   upgrades all packages standard and AUR
+
+yay -Sua   upgrades only AUR packages
+
+yay -Pu    gives list of AUR packages that need upgrading
+
+
+when using yay or paru, AUR helper will automatically download and install the public keys
+
+
+When using yay, the software package builds are in .cache/yay/
+
+
+when not using yay, but installing AUR package the manual way, if you get an error public key unkown like when you are installing Librewolf, copy and past the public key that's in the error message after this command:
+gpg --recv-key KEY 
+
+to list software keys: gpg --list-keys
+
+to delete software key: gpg --delete-key "copy and paste key here"
+
+

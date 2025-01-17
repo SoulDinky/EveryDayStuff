@@ -1,0 +1,5 @@
+On guest machine: ssh-keygen -t ed25519
+
+Copy this to host: ssh-copy-id user@ipaddress
+
+

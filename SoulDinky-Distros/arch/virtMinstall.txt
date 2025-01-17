@@ -1,0 +1,31 @@
+sudo pacman -S ebtables iptables dnsmasq dmidecode bridge-utils 
+
+sudo pacman -S qemu qemu-full vde2 openbsd-netcat virt-manager
+
+sudo systemctl enable --now libvirtd
+
+sudo vim /etc/libvirt/libvirtd.conf    #uncomment lines 81 & 104
+
+sudo usermod -a -G libvirt $(whoami)
+
+groups $(whoami)
+
+sudo systemctl restart libvirtd  #try sudo systemctl restart libvirtd.service or rebooting 
+
+sudo virsh net-define /etc/libvirt/qemu/networks/default.xml
+
+sudo virsh net-autostart default
+
+sudo virsh net-list --all
+
+sudo systemctl status libvirtd
+
+
+reboot
+
+
+
+sudo qemu-img convert -f vdi -O qcow2  Void.vdi /var/lib/libvirt/images/Void.qcow2
+
+
+

@@ -1,0 +1,5 @@
+Verify sha is the same whether doing it in a Arch system or another system
+make a txt file with sha leave two spaces and past in name of iso file
+command: sha256sum -c sha.txt
+
+
