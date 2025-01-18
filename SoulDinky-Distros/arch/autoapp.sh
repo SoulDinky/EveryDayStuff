@@ -7,37 +7,22 @@ sudo pacman -S \
 	alsa-utils \
 	breeze \
 	celluloid \
-	clamav \
 	clipgrab \
-	cmus \
-	dmenu \
-	nitrogen \
-	eog \
-	fastfetch \
 	ffmpeg \
 	firefox \
 	firefox-ublock-origin \
-	freerdp \
-	gnome-calculator \
+        gnome-calculator \
 	gnome-disk-utility \
 	gnome-screenshot \
-	gnome-system-monitor \
-	gst-libav \
 	gufw \
-	hplip \
 	htop \
-	imwheel \
 	lightdm \
 	lightdm-gtk-greeter \
 	lightdm-gtk-greeter-settings \
-	lxappearance-gtk3 \
-	lxsession-gtk3	\
 	man-db \
 	man-pages \
-	materia-gtk-theme \
-	network-manager-applet \
-	nemo \
-	neofetch \
+        network-manager-applet \
+        neofetch \
 	papirus-icon-theme \
 	pavucontrol \
 	pcmanfm \
