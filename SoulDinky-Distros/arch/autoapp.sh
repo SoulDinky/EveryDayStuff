@@ -2,7 +2,12 @@
 
 
 
-sudo pacman -S \
+sudo pacman -S \ 
+        thunderbird \
+	kicad \
+        blender \
+	gnumeric \
+        featherpad \
 	alsa-plugins \
 	alsa-utils \
 	breeze \
